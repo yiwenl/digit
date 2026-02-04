@@ -1,0 +1,50 @@
+{
+  "name": "digit",
+  "version": "1.0.0",
+  "description": "Hand tracking module using MediaPipe",
+  "main": "dist/digit.umd.js",
+  "module": "dist/digit.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/digit.esm.js",
+      "require": "./dist/digit.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "test:build": "rollup -c rollup.test.config.js",
+    "prepare": "npm run build",
+    "dev": "rollup -c -w",
+    "start": "npx serve test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yiwenl/digit.git"
+  },
+  "keywords": [
+    "hand-tracking",
+    "mediapipe",
+    "tensorflow.js"
+  ],
+  "author": "Yi-Wen Lin",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "rollup": "^4.0.0",
+    "tslib": "^2.8.1",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@mediapipe/tasks-vision": "^0.10.9",
+    "camera-manager": "github:yiwenl/camera-manager"
+  }
+}
