@@ -1,4 +1,4 @@
-import { HandLandmarkManager } from '../dist/digit.esm.js';
+import { HandLandmarkManager } from '../src/index.ts';
 
 const statusEl = document.getElementById('status');
 const handCountEl = document.getElementById('hand-count');

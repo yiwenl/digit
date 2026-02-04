@@ -8,6 +8,14 @@ Hand tracking module using MediaPipe and TensorFlow.js.
 npm install digit
 ```
 
+## Development
+
+```bash
+npm run dev
+```
+
+This will start a development server with hot reload at `http://localhost:5173`.
+
 ## Usage
 
 ```javascript
