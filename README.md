@@ -28,7 +28,7 @@ const manager = new HandLandmarkManager({
 
 await manager.init();
 
-manager.addEventListener('hand-detected', (e) => {
+manager.addEventListener(HandLandmarkManager.EVENTS.HAND_DETECTED, (e) => {
     const results = e.detail;
     
     // 2D Normalized Landmarks (0-1)
@@ -44,6 +44,15 @@ manager.addEventListener('hand-detected', (e) => {
 ## API
 
 ### HandLandmarkManager
+
+#### Events
+
+The `HandLandmarkManager` exposes event names via the static `EVENTS` property:
+
+| Event Constant | Value | Description |
+| :--- | :--- | :--- |
+| `HandLandmarkManager.EVENTS.HAND_DETECTED` | `'hand-detected'` | Dispatched when hands are detected. Contains `results` with `landmarks` and `worldLandmarks` in `event.detail`. |
+| `HandLandmarkManager.EVENTS.ERROR` | `'error'` | Dispatched when an error occurs during detection. |
 
 #### `constructor(options)`
 - `options.modelType`: 'LITE' | 'FULL' (default: 'FULL')

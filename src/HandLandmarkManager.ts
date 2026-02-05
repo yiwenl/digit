@@ -8,6 +8,11 @@ export interface HandLandmarkManagerOptions {
 }
 
 export class HandLandmarkManager extends EventTarget {
+  static readonly EVENTS = {
+    HAND_DETECTED: 'hand-detected',
+    ERROR: 'error'
+  } as const;
+
   private handLandmarker: HandLandmarker | null = null;
   private cameraManager: CameraManager | null = null;
   private rafId: number | null = null;
@@ -88,9 +93,10 @@ export class HandLandmarkManager extends EventTarget {
         this.results = results;
         
         // Results structure: { landmarks, worldLandmarks, handedness }
-        this.dispatchEvent(new CustomEvent('hand-detected', { detail: results }));
+        this.dispatchEvent(new CustomEvent(HandLandmarkManager.EVENTS.HAND_DETECTED, { detail: results }));
       } catch (err) {
         console.error('Hand detection error:', err);
+        this.dispatchEvent(new CustomEvent(HandLandmarkManager.EVENTS.ERROR, { detail: err }));
       }
     }
 

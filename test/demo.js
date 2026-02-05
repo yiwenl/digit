@@ -42,7 +42,7 @@ const FINGER_JOINTS = [
         window.addEventListener('resize', resize);
         resize();
         
-        manager.addEventListener('hand-detected', (e) => {
+        manager.addEventListener(HandLandmarkManager.EVENTS.HAND_DETECTED, (e) => {
             const results = e.detail;
             const landmarks = results.landmarks || [];
             const worldLandmarks = results.worldLandmarks || [];
